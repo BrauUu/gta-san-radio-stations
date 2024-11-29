@@ -1,8 +1,10 @@
 "use client"
 
+import { useState } from 'react'
+
 import RadioList from './components/RadioList/index.js'
 import { PlayIcon, BackwardIcon, ForwardIcon } from '@heroicons/react/24/outline'
-import { RadioContext } from './contexts/RadioContext/index';
+import { RadioProvider } from './contexts/RadioContext/index';
 
 export default function Home() {
 
@@ -11,7 +13,7 @@ export default function Home() {
   }
 
   return (
-    <RadioContext.Provider value={10}>
+    <RadioProvider>
       <RadioList/>
       <div className='flex flex-row gap-5'>
         <button id='previous-radio' className='h-10'>
@@ -24,6 +26,6 @@ export default function Home() {
           <ForwardIcon className='h-full'></ForwardIcon>
         </button>
       </div>
-    </RadioContext.Provider>
+    </RadioProvider>
   );
 };

@@ -1,10 +1,18 @@
-
-export default function RadioBox(props) {
-    const {videoUrl, image} = props
+export default function RadioBox({radio, setActualRadioId}) {
+    const {
+        id, 
+        name, 
+        videoUrl, 
+        image
+    } = radio
+    
     return (
         <div>
             <img className="h-40"
                 src={`../images/${image}`}
+                onClick={() => {
+                    setActualRadioId(id)
+                }}
             />
         </div>
     )
