@@ -1,6 +1,6 @@
 "use client"
 
-import { RadioContext } from '../../contexts/RadioContext/index';
+import { GlobalContext } from '../../contexts/GlobalContext';
 import { useState, useContext, useEffect } from 'react'
 
 import radiosList from '../../data/radiosList'
@@ -15,7 +15,7 @@ export default function RadioList() {
         setActualRadioId,
         isPlaying,
         setIsPlaying
-    } = useContext(RadioContext);
+    } = useContext(GlobalContext);
 
     function getVideoUrlByRadioId(id) {
         for (let i = 0; i < radiosList.length; i++) {
@@ -35,6 +35,7 @@ export default function RadioList() {
                     :
                     undefined
             }
+            
             <div className='flex flex-row'>
                 {
                     radiosList.map(radio => {

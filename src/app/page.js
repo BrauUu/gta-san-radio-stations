@@ -4,14 +4,14 @@ import { useState } from 'react'
 
 import RadioList from './sections/RadioList/index.js'
 import ControlPanel from './sections/ControlPanel/index.js'
-import { RadioProvider } from './contexts/RadioContext/index';
+import { GlobalProvider } from './contexts/GlobalContext';
 
 export default function Home() {
 
   return (
-    <RadioProvider>
+    <GlobalProvider>
       <RadioList/>
       <ControlPanel/>
-    </RadioProvider>
+    </GlobalProvider>
   );
 };
