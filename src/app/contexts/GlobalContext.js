@@ -4,8 +4,7 @@ import { useState, useRef } from 'react';
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-    const [actualRadioId, setActualRadioId] = useState(1)
-    const [isPlaying, setIsPlaying] = useState(false)
+    const [actualRadioId, setActualRadioId] = useState(6)
 
     const methods = useRef({});
 
@@ -30,8 +29,6 @@ export const GlobalProvider = ({ children }) => {
         { 
           actualRadioId, 
           setActualRadioId, 
-          isPlaying,
-          setIsPlaying,
           registerMethod, 
           unregisterMethod, 
           callMethod

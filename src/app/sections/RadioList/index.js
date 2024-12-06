@@ -1,7 +1,7 @@
 "use client"
 
 import { GlobalContext } from '../../contexts/GlobalContext';
-import { useState, useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 
 import radiosList from '../../data/radiosList'
 
@@ -12,36 +12,59 @@ export default function RadioList() {
 
     const {
         actualRadioId,
-        setActualRadioId,
-        isPlaying,
-        setIsPlaying
+        setActualRadioId
     } = useContext(GlobalContext);
 
-    function getVideoUrlByRadioId(id) {
+    function getRadioById(id) {
         for (let i = 0; i < radiosList.length; i++) {
             const radio = radiosList[i]
             if (radio['id'] == id) {
-                return radio['video-url']
+                return radio
             }
         }
         return null
     }
 
-    return (
-        <div>
-            {
-                getVideoUrlByRadioId(actualRadioId) ?
-                    <YouTubePlayer videoId={getVideoUrlByRadioId(actualRadioId)}></YouTubePlayer>
-                    :
-                    undefined
-            }
+    useEffect(() => {
+
+        const wrapper = document.querySelector('#wrapper')
+        const carrouselItens = document.querySelectorAll('.carrousel-item')
+
+        function scrollToItem(id) {
             
-            <div className='flex flex-row'>
-                {
-                    radiosList.map(radio => {
-                        return <RadioBox key={radio['name']} radio={radio} setActualRadioId={setActualRadioId} />
+            carrouselItens.forEach((node) => {
+                if (node.id == `radio-${id}`) {
+                    node.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                        inline: "center"
                     })
                 }
+            })
+        }
+
+        scrollToItem(actualRadioId)
+    }, [actualRadioId])
+
+    return (
+        <div>
+            <div>
+                {
+                    getRadioById(actualRadioId)['video-url'] ?
+                        <YouTubePlayer videoId={getRadioById(actualRadioId)['video-url']}></YouTubePlayer>
+                        :
+                        undefined
+                }
+            </div>
+            <div className='flex overflow-hidden'>
+                <div className='flex w-full flex-row h-80' id='wrapper'>
+                    {
+                        radiosList.map(radio => {
+                            return <RadioBox key={radio['name']} radio={radio} setActualRadioId={setActualRadioId} actualRadioId={actualRadioId} />
+                        })
+
+                    }
+                </div>
             </div>
         </div>
     )

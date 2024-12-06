@@ -1,4 +1,3 @@
-
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -19,7 +18,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${defaultFont.variable}`}
       >
-
         {children}
       </body>
     </html>

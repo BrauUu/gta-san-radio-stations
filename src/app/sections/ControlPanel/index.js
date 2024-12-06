@@ -5,7 +5,6 @@ import { GlobalContext } from '../../contexts/GlobalContext'
 export default function ControlPanel() {
 
     const { 
-        isPlaying, 
         actualRadioId,
         setActualRadioId,
         callMethod 
@@ -15,9 +14,6 @@ export default function ControlPanel() {
         callMethod('play')
     }
 
-    const pause = () => {
-        callMethod('pause')
-    }
     const next = () => {
         let newActualRadioId = actualRadioId + 1
         if(actualRadioId === 11) {
@@ -39,13 +35,8 @@ export default function ControlPanel() {
             <button id='previous-radio' className='h-10'>
                 <BackwardIcon className='h-full' onClick={previous}></BackwardIcon>
             </button>
-            <button id='play' className='h-10'>
-                {
-                    isPlaying ?
-                    <PauseIcon className='h-full' onClick={pause}></PauseIcon>
-                    :
-                    <PlayIcon className='h-full' onClick={play}></PlayIcon>
-                }
+            <button id='play' className='h-10'> 
+                <PlayIcon className='h-full' onClick={play}></PlayIcon>
             </button>
             <button id='next-radio' className='h-10'>
                 <ForwardIcon className='h-full' onClick={next}></ForwardIcon>

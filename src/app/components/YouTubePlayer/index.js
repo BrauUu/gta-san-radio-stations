@@ -9,16 +9,16 @@ export default function YouTubePlayer({ videoId }) {
   const playerRef = useRef(null);
   const [player, setPlayer] = useState(null);
 
-  const { setIsPlaying, registerMethod } = useContext(GlobalContext);
+  const {registerMethod } = useContext(GlobalContext);
 
   const loadVideoAsync = async (videoId) => {
     if (!player) throw new Error("Player não inicializado");
 
-    player.loadVideoById(videoId);
-
+    player.cueVideoById(videoId);
+    
     return new Promise((resolve, reject) => {
       const onPlayerStateChange = (event) => {
-        if (event.data === window.YT.PlayerState.PLAYING) {
+        if (event.data === window.YT.PlayerState.CUED) {
           resolve();
         }
         if (event.data === window.YT.PlayerState.ENDED) {
@@ -42,8 +42,8 @@ export default function YouTubePlayer({ videoId }) {
         script.onload = () => {
           window.onYouTubeIframeAPIReady = async () => {
             new window.YT.Player(playerRef.current, {
-              height: "315",
-              width: "560",
+              height: "300",
+              width: "500",
               videoId: videoId,
               playerVars: {
                 loop: 1,
@@ -57,15 +57,10 @@ export default function YouTubePlayer({ videoId }) {
                   );
                   registerMethod("play", () => {
                     if (event.target) {
+                      event.target.seekTo(
+                        getRadioActualTime(event.target.getDuration())
+                      );
                       event.target.playVideo();
-                      setIsPlaying(true);
-                    }
-                  });
-
-                  registerMethod("pause", () => {
-                    if (event.target) {
-                      event.target.pauseVideo();
-                      setIsPlaying(false);
                     }
                   });
                 },

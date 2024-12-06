@@ -64,5 +64,5 @@ export default [
         "name": "WCTR",
         "video-url": "ZgeHsKbGJbU",
         "image": "WCTR.png"
-    }
+    },
 ]
