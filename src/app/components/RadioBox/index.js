@@ -1,4 +1,4 @@
-export default function RadioBox({ radio, setActualRadioId, actualRadioId }) {
+export default function RadioBox({ radio, setCurrentRadio, currentRadio }) {
     const {
         id,
         name,
@@ -14,12 +14,12 @@ export default function RadioBox({ radio, setActualRadioId, actualRadioId }) {
             <img className={
                 `
                 transition-[height] ease-linear duration-150
-                ${actualRadioId == id ? 'h-80' : 'h-44'}
+                ${currentRadio.id == id ? 'h-80' : 'h-44'}
                 `
             }
                 src={`../images/${image}`}
                 onClick={() => {
-                    setActualRadioId(id)
+                    setCurrentRadio(radio)
                 }}
             />
         </div>

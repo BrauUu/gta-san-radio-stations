@@ -1,10 +1,13 @@
 import { createContext } from 'react';
 import { useState, useRef } from 'react';
 
+import radiosList from '../data/radiosList';
+
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-    const [actualRadioId, setActualRadioId] = useState(6)
+    const [currentRadio, setCurrentRadio] = useState(radiosList[5])
+    const [player, setPlayer] = useState(null);
 
     const methods = useRef({});
 
@@ -26,9 +29,11 @@ export const GlobalProvider = ({ children }) => {
   
     return (
       <GlobalContext.Provider value={
-        { 
-          actualRadioId, 
-          setActualRadioId, 
+        {
+          currentRadio,
+          setCurrentRadio,
+          player, 
+          setPlayer,
           registerMethod, 
           unregisterMethod, 
           callMethod

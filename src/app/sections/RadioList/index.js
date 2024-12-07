@@ -1,7 +1,7 @@
 "use client"
 
 import { GlobalContext } from '../../contexts/GlobalContext';
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import radiosList from '../../data/radiosList'
 
@@ -11,19 +11,9 @@ import YouTubePlayer from '../../components/YouTubePlayer/index.js'
 export default function RadioList() {
 
     const {
-        actualRadioId,
-        setActualRadioId
+        currentRadio,
+        setCurrentRadio,
     } = useContext(GlobalContext);
-
-    function getRadioById(id) {
-        for (let i = 0; i < radiosList.length; i++) {
-            const radio = radiosList[i]
-            if (radio['id'] == id) {
-                return radio
-            }
-        }
-        return null
-    }
 
     useEffect(() => {
 
@@ -31,7 +21,7 @@ export default function RadioList() {
         const carrouselItens = document.querySelectorAll('.carrousel-item')
 
         function scrollToItem(id) {
-            
+
             carrouselItens.forEach((node) => {
                 if (node.id == `radio-${id}`) {
                     node.scrollIntoView({
@@ -39,33 +29,37 @@ export default function RadioList() {
                         block: "center",
                         inline: "center"
                     })
+                    return
                 }
             })
         }
 
-        scrollToItem(actualRadioId)
-    }, [actualRadioId])
+        scrollToItem(currentRadio.id)
+    }, [currentRadio])
 
     return (
         <div>
             <div>
-                {
-                    getRadioById(actualRadioId)['video-url'] ?
-                        <YouTubePlayer videoId={getRadioById(actualRadioId)['video-url']}></YouTubePlayer>
-                        :
-                        undefined
-                }
-            </div>
-            <div className='flex overflow-hidden'>
-                <div className='flex w-full flex-row h-80' id='wrapper'>
+                <div>
                     {
-                        radiosList.map(radio => {
-                            return <RadioBox key={radio['name']} radio={radio} setActualRadioId={setActualRadioId} actualRadioId={actualRadioId} />
-                        })
-
+                        currentRadio['video-url'] ?
+                            <YouTubePlayer videoId={currentRadio['video-url']}></YouTubePlayer>
+                            :
+                            undefined
                     }
                 </div>
+                <div className='flex overflow-hidden'>
+                    <div className='flex w-full flex-row h-80' id='wrapper'>
+                        {
+                            radiosList.map(radio => {
+                                return <RadioBox key={radio['name']} radio={radio} setCurrentRadio={setCurrentRadio} currentRadio={currentRadio} />
+                            })
+
+                        }
+                    </div>
+                </div>
             </div>
+
         </div>
     )
 }

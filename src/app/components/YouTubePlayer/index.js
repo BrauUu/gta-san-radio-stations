@@ -7,15 +7,18 @@ function getRadioActualTime(radioDuration) {
 
 export default function YouTubePlayer({ videoId }) {
   const playerRef = useRef(null);
-  const [player, setPlayer] = useState(null);
 
-  const {registerMethod } = useContext(GlobalContext);
+  const {
+    registerMethod,
+    player,
+    setPlayer
+  } = useContext(GlobalContext);
 
   const loadVideoAsync = async (videoId) => {
     if (!player) throw new Error("Player não inicializado");
 
     player.cueVideoById(videoId);
-    
+
     return new Promise((resolve, reject) => {
       const onPlayerStateChange = (event) => {
         if (event.data === window.YT.PlayerState.CUED) {
@@ -51,6 +54,7 @@ export default function YouTubePlayer({ videoId }) {
               },
               events: {
                 onReady: async (event) => {
+                  console.log('ready')
                   setPlayer(event.target)
                   event.target.seekTo(
                     getRadioActualTime(event.target.getDuration())
@@ -78,7 +82,7 @@ export default function YouTubePlayer({ videoId }) {
     };
 
     initializePlayer();
-  }, [videoId]);
+  }, [player, videoId]);
 
   return <div ref={playerRef}></div>;
 }

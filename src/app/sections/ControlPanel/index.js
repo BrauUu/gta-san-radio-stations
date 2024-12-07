@@ -1,12 +1,14 @@
 import { useContext } from 'react'
-import { PlayIcon, BackwardIcon, ForwardIcon, PauseIcon } from '@heroicons/react/24/outline'
+import { PlayIcon, BackwardIcon, ForwardIcon, } from '@heroicons/react/24/outline'
 import { GlobalContext } from '../../contexts/GlobalContext'
+
+import radiosList from '../../data/radiosList'
 
 export default function ControlPanel() {
 
     const { 
-        actualRadioId,
-        setActualRadioId,
+        currentRadio,
+        setCurrentRadio,
         callMethod 
     } = useContext(GlobalContext)
 
@@ -15,19 +17,19 @@ export default function ControlPanel() {
     }
 
     const next = () => {
-        let newActualRadioId = actualRadioId + 1
-        if(actualRadioId === 11) {
-            newActualRadioId = 1
+        let radioIndex = currentRadio.id + 1
+        if(radioIndex >= 10) {
+            radioIndex = 0
         }
-        setActualRadioId(newActualRadioId)
+        setCurrentRadio(radiosList[radioIndex])
     }
 
     const previous = () => {
-        let newActualRadioId = actualRadioId - 1
-        if(actualRadioId === 1) {
-            newActualRadioId = 11
+        let radioIndex = currentRadio.id - 1
+        if(radioIndex <= -1) {
+            radioIndex = 10
         }
-        setActualRadioId(newActualRadioId)
+        setCurrentRadio(radiosList[radioIndex])
     }
 
     return (
