@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState, useEffect, useRef } from 'react'
 import { GlobalContext } from '@/app/contexts/GlobalContext'
 
 export default function SongInfo() {
@@ -9,38 +9,40 @@ export default function SongInfo() {
     } = useContext(GlobalContext)
 
     const [currentSong, setCurrentSong] = useState(null)
+    const currentSongRef = useRef(null)
 
-
-    const changeCurrentSong = (currentTime) => {
-        const songs = currentRadio.songs
-        let isAdvertisement = true
-        songs.forEach(song => {
-            if (song.startTime <= currentTime && song.endTime >= currentTime) {
-                setCurrentSong(song)
-                isAdvertisement = false
-                return
-            }
-        });
-        if (isAdvertisement) setCurrentSong(null)
-    }
-
-    const isCurrentSongChanged = () => {
-        const currentTime = player.getCurrentTime()
-        if (!currentSong || currentTime > currentSong.endTime) {
-            changeCurrentSong(currentTime)
-        }
-    }
+    useEffect(() => {
+        currentSongRef.current = currentSong;
+    }, [currentSong])
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            isCurrentSongChanged();
+            if (player) {
+                const currentTime = Number.parseInt(player.getCurrentTime());
+                if (!currentSongRef.current || currentTime > currentSongRef.current.endTime) {
+                    const songs = currentRadio.songs;
+                    let isAdvertisement = true;
+                    songs.forEach(song => {
+                        if (song.startTime <= currentTime && song.endTime >= currentTime) {
+                            setCurrentSong(song);
+                            currentSongRef.current = song; 
+                            isAdvertisement = false;
+                        }
+                    });
+                    if (isAdvertisement) {
+                        setCurrentSong(null);
+                        currentSongRef.current = null; 
+                    }
+                }
+            }
         }, 1000);
 
         return () => {
             clearInterval(intervalId);
-            setCurrentSong(null)
-        }
-    }, [currentRadio, player])
+            setCurrentSong(null);
+            currentSongRef.current = null;
+        };
+    }, [player, currentRadio]);
 
     return (
         <div>
