@@ -1025,11 +1025,186 @@ export default [
         "image": "WCTR.png",
         "songs": [
             {
-                "name": "Speaking",
-                "author": null,
-                "startTime": 0,
+                "name": "Area 53",
+                "author": "Marvin Trill",
+                "startTime": 11,
+                "endTime": 201
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 201,
+                "endTime": 341
+            },
+            {
+                "name": "The Tight End Zone",
+                "author": "Derrick Thackery",
+                "startTime": 341,
+                "endTime": 716
+            },
+            {
+                "name": "Entertaining America",
+                "author": "Billy Dexter",
+                "startTime": 716,
+                "endTime": 1083
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 1083,
+                "endTime": 1243
+            },
+            {
+                "name": "Gardening with Maurice",
+                "author": "Maurice",
+                "startTime": 1243,
+                "endTime": 1458
+            },
+            {
+                "name": "Lonely Hearts Show",
+                "author": "Christy MacIntyre",
+                "startTime": 1458,
+                "endTime": 1814
+            },
+            {
+                "name": "I Say / You Say",
+                "author": "Peyton Phillips and Mary Phillips",
+                "startTime": 1814,
+                "endTime": 2166
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 2166,
+                "endTime": 2411
+            },
+            {
+                "name": "The Wild Traveler",
+                "author": "James Pedeaston",
+                "startTime": 2411,
+                "endTime": 2753
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 2753,
+                "endTime": 2883
+            },
+            {
+                "name": "Gardening with Maurice",
+                "author": "Maurice",
+                "startTime": 2883,
+                "endTime": 3147
+            },
+            {
+                "name": "Lonely Hearts Show",
+                "author": "Christy MacIntyre",
+                "startTime": 3147,
+                "endTime": 3347
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 3347,
+                "endTime": 3639
+            },
+            {
+                "name": "Entertaining America",
+                "author": "Billy Dexter",
+                "startTime": 3639,
+                "endTime": 3978
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 3978,
+                "endTime": 4126
+            },
+            {
+                "name": "Gardening with Maurice",
+                "author": "Maurice",
+                "startTime": 4126,
+                "endTime": 4218
+            },
+            {
+                "name": "Area 53",
+                "author": "Marvin Trill",
+                "startTime": 4218,
+                "endTime": 4387
+            },
+            {
+                "name": "The Wild Traveler",
+                "author": "James Pedeaston",
+                "startTime": 4387,
+                "endTime": 4790
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 4790,
+                "endTime": 4931
+            },
+            {
+                "name": "The Tight End Zone",
+                "author": "Derrick Thackery",
+                "startTime": 4931,
+                "endTime": 5263
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 5263,
+                "endTime": 5456
+            },
+            {
+                "name": "Area 53",
+                "author": "Marvin Trill",
+                "startTime": 5456,
+                "endTime": 5707
+            },
+            {
+                "name": "I Say / You Say",
+                "author": "Peyton Phillips and Mary Phillips",
+                "startTime": 5707,
+                "endTime": 5990
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 5990,
+                "endTime": 6048
+            },
+            {
+                "name": "Entertaining America",
+                "author": "Billy Dexter",
+                "startTime": 6048,
+                "endTime": 6481
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 6481,
+                "endTime": 6615
+            },
+            {
+                "name": "Lonely Hearts Show",
+                "author": "Christy MacIntyre",
+                "startTime": 6615,
+                "endTime": 6954
+            },
+            {
+                "name": "Gardening with Maurice",
+                "author": "Maurice",
+                "startTime": 6954,
+                "endTime": 7536
+            },
+            {
+                "name": "WCTR News",
+                "author": "Lianne Forget and Richard Burns",
+                "startTime": 7536,
                 "endTime": 7545
-            }  
+            }
         ]
+
     },
 ]
