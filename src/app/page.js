@@ -9,9 +9,11 @@ export default function Home() {
 
   return (
     <GlobalProvider>
-      <RadioList/>
-      <SongInfo/>
-      <ControlPanel/>
+      <div className='flex flex-col justify-center h-screen'>
+        <RadioList />
+        <SongInfo />
+        <ControlPanel />
+      </div>
     </GlobalProvider>
   );
 };

@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const defaultFont = localFont({
-  src: "../../public/fonts/BankGothicRegular.ttf",
+  src: "../../public/fonts/BankGothicMedium.ttf",
   variable: "--font-geist-mono",
   weight: "400",
 });

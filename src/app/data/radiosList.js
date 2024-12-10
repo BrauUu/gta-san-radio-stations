@@ -4,6 +4,7 @@ export default [
         "name": "Bounce FM",
         "video-url": "KZUfoNjKAPU",
         "image": "BounceFM.png",
+        "duration": 4082,
         "songs": [
             {
                 "name": "Love Rollercoaster",
@@ -115,6 +116,7 @@ export default [
         "name": "CSR 103:9",
         "video-url": "ZxBUyIaPOo8",
         "image": "CSR1039.png",
+        "duration": 2871,
         "songs": [
             {
                 "name": "Don't Be Afraid",
@@ -202,6 +204,7 @@ export default [
         "name": "K-DST",
         "video-url": "LAoHCMu4xto",
         "image": "K-DST.png",
+        "duration": 4139,
         "songs": [
             {
                 "name": "Some Kind of Wonderful",
@@ -313,6 +316,7 @@ export default [
         "name": "K-Rose",
         "video-url": "89Fk57m1eYs",
         "image": "K-Rose.png",
+        "duration": 2939,
         "songs": [
             {
                 "name": "All My Ex's Live in Texas",
@@ -412,6 +416,7 @@ export default [
         "name": "K-JAH West",
         "video-url": "CCk3ZBv3KkA",
         "image": "KJAHWest.png",
+        "duration": 3654,
         "songs": [
             {
                 "name": "Wicked Inna Bed",
@@ -517,6 +522,7 @@ export default [
         "name": "Master Sounds 98.3",
         "video-url": "SSJou5wCuEc",
         "image": "MasterSounds983.png",
+        "duration": 3954,
         "songs": [
             {
                 "name": "The Payback",
@@ -633,6 +639,7 @@ export default [
         "name": "Playback",
         "video-url": "uvkkN2REaXQ",
         "image": "Playback.png",
+        "duration": 2867,
         "songs": [
             {
                 "name": "Children's Story",
@@ -714,6 +721,7 @@ export default [
         "name": "Radio Los Santos",
         "video-url": "nQByeQ8f6Fk",
         "image": "RadioLosSantos.png",
+        "duration": 3821,
         "songs": [
             {
                 "name": "La Raza",
@@ -819,6 +827,7 @@ export default [
         "name": "Radio:X",
         "video-url": "LKo2DoOb5nc",
         "image": "RadioX.png",
+        "duration": 3469,
         "songs": [
             {
                 "name": "Unsung",
@@ -918,6 +927,7 @@ export default [
         "name": "SF-UR",
         "video-url": "SlVicJ9SZt4",
         "image": "SFUR.png",
+        "duration": 4085,
         "songs": [
             {
                 "name": "Voodoo Ray",
@@ -1023,6 +1033,7 @@ export default [
         "name": "WCTR",
         "video-url": "ZgeHsKbGJbU",
         "image": "WCTR.png",
+        "duration": 7546,
         "songs": [
             {
                 "name": "Area 53",

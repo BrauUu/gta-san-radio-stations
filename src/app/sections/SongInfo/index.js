@@ -8,7 +8,7 @@ export default function SongInfo() {
         player
     } = useContext(GlobalContext)
 
-    const [currentSong, setCurrentSong] = useState(null)
+    const [currentSong, setCurrentSong] = useState(undefined)
     const currentSongRef = useRef(null)
 
     useEffect(() => {
@@ -25,13 +25,13 @@ export default function SongInfo() {
                     songs.forEach(song => {
                         if (song.startTime <= currentTime && song.endTime >= currentTime) {
                             setCurrentSong(song);
-                            currentSongRef.current = song; 
+                            currentSongRef.current = song;
                             isAdvertisement = false;
                         }
                     });
                     if (isAdvertisement) {
                         setCurrentSong(null);
-                        currentSongRef.current = null; 
+                        currentSongRef.current = null;
                     }
                 }
             }
@@ -39,18 +39,40 @@ export default function SongInfo() {
 
         return () => {
             clearInterval(intervalId);
-            setCurrentSong(null);
+            setCurrentSong(undefined);
             currentSongRef.current = null;
         };
     }, [player, currentRadio]);
 
+    const getSongDOM = () => {
+        if (currentSong) {
+            return (
+                <div className='flex flex-col items-center hover:text-font-color-secondary cursor-default'>
+                    <p className='text-5xl font-black'>{currentSong.name}</p>
+                    <p className='text-3xl font-bold'>{currentSong.author}</p>
+                </div>
+            )
+        }
+        if (currentSong === null) {
+            return (
+                <div className='flex flex-col justify-center h-full hover:text-font-color-secondary cursor-default'>
+                    <p className='text-5xl font-black'>Advertisement</p>
+                </div>
+            )
+        }
+        if (currentSong === undefined) {
+            return (
+                <div className='flex flex-col justify-center h-full hover:text-font-color-secondary cursor-default'>
+                    <p className='text-5xl font-black'>Tuning...</p>
+                </div>
+            )
+        }
+    }
+
     return (
-        <div>
+        <div className='flex flex-col items-center my-4 min-h-[84px]'>
             {
-                currentSong ?
-                    <p>{currentSong.name}</p>
-                    :
-                    <p>Advertisement</p>
+                getSongDOM()
             }
         </div>
     )

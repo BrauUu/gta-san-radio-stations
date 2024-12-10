@@ -40,23 +40,21 @@ export default function RadioList() {
     return (
         <div>
             <div>
-                <div>
+                {
+                    currentRadio['video-url'] ?
+                        <YouTubePlayer videoId={currentRadio['video-url']}></YouTubePlayer>
+                        :
+                        undefined
+                }
+            </div>
+            <div className='flex overflow-hidden'>
+                <div className='flex w-full flex-row h-80' id='wrapper'>
                     {
-                        currentRadio['video-url'] ?
-                            <YouTubePlayer videoId={currentRadio['video-url']}></YouTubePlayer>
-                            :
-                            undefined
-                    }
-                </div>
-                <div className='flex overflow-hidden'>
-                    <div className='flex w-full flex-row h-80' id='wrapper'>
-                        {
-                            radiosList.map(radio => {
-                                return <RadioBox key={radio['name']} radio={radio} setCurrentRadio={setCurrentRadio} currentRadio={currentRadio} />
-                            })
+                        radiosList.map(radio => {
+                            return <RadioBox key={radio['name']} radio={radio} setCurrentRadio={setCurrentRadio} currentRadio={currentRadio} />
+                        })
 
-                        }
-                    </div>
+                    }
                 </div>
             </div>
 
