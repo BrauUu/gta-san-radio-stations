@@ -11,8 +11,6 @@ const nextConfig = {
   
       return config;
     },
-    basePath: '/gta-san-radio-stations',
-    assetPrefix: '/gta-san-radio-stations
 };
 
 export default nextConfig;
