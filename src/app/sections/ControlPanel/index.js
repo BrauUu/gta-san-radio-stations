@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Play, SkipForward, SkipBack, SpeakerSimpleHigh, SpeakerSimpleLow, SpeakerSimpleX, SpeakerSimpleNone} from "@phosphor-icons/react";
 import { GlobalContext } from '../../contexts/GlobalContext';
 
@@ -17,10 +17,9 @@ export default function ControlPanel() {
     } = useContext(GlobalContext)
 
     const [isMuted, setIsMuted] = useState(false)
+    const [HoverMenuSoundAudio, setHoverMenuSoundAudio] = useState(null)
+    const [SelectMenuSoundAudio, setSelectMenuSoundAudio] = useState(null)
     const isHovering = useRef(false)
-
-    const HoverMenuSoundAudio = new Audio(HoverMenuSound)
-    const SelectMenuSoundAudio = new Audio(SelectMenuSound)
 
     const play = () => {
         callMethod('play')
@@ -45,6 +44,11 @@ export default function ControlPanel() {
     const playSound = (audio) => {
         audio.play()
     }
+
+    useEffect(() => {
+        setHoverMenuSoundAudio(new Audio(HoverMenuSound))
+        setSelectMenuSoundAudio(new Audio(SelectMenuSound))
+    },[])
 
     const getVolumeDOM = () => {
         if (isMuted) {
