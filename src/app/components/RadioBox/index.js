@@ -1,8 +1,10 @@
+import Image from 'next/image'
 import "./index.css"
 
 export default function RadioBox({ radio, setCurrentRadio, currentRadio }) {
     const {
         id,
+        name,
         image
     } = radio
 
@@ -15,13 +17,17 @@ export default function RadioBox({ radio, setCurrentRadio, currentRadio }) {
                 `}
             id={`radio-${id}`}
         >
-            <img className={
+            <Image className={
                 `
                 transition-[height] ease-linear duration-150
                 ${currentRadio.id == id ? 'h-80' : 'h-44'}
+                w-auto
                 `
             }
-                src={`../images/${image}`}
+                height={480}
+                width={480}
+                alt={name}
+                src={`/images/${image}`}
                 onClick={() => {
                     setCurrentRadio(radio)
                 }}

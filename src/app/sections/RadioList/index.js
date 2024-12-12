@@ -1,10 +1,10 @@
 "use client"
 
-import { GlobalContext } from '../../contexts/GlobalContext';
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 
 import radiosList from '../../data/radiosList'
 
+import { GlobalContext } from '../../contexts/GlobalContext';
 import RadioBox from '../../components/RadioBox/index.js'
 import YouTubePlayer from '../../components/YouTubePlayer/index.js'
 
