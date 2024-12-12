@@ -8,6 +8,7 @@ export const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
     const [currentRadio, setCurrentRadio] = useState(radiosList[5])
     const [player, setPlayer] = useState(null);
+    const [volume, setVolume] = useState(100);
 
     const methods = useRef({});
 
@@ -34,6 +35,8 @@ export const GlobalProvider = ({ children }) => {
           setCurrentRadio,
           player, 
           setPlayer,
+          volume, 
+          setVolume,
           registerMethod, 
           unregisterMethod, 
           callMethod

@@ -13,7 +13,6 @@ export default function RadioBox({ radio, setCurrentRadio, currentRadio }) {
         >
             <img className={
                 `
-                cursor-pointer
                 transition-[height] ease-linear duration-150
                 ${currentRadio.id == id ? 'h-80' : 'h-44'}
                 `

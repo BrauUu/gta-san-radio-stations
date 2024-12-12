@@ -8,12 +8,15 @@ import { GlobalProvider } from './contexts/GlobalContext';
 export default function Home() {
 
   return (
+    <>
+    <p className='title text-7xl pl-10 pt-10 h-[10%]'>Radio Stations</p>
     <GlobalProvider>
-      <div className='flex flex-col justify-center h-screen'>
+      <div className='flex flex-col justify-center h-[90%]'>
         <RadioList />
         <SongInfo />
         <ControlPanel />
       </div>
     </GlobalProvider>
+    </>
   );
 };

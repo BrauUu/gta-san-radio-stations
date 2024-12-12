@@ -11,5 +11,14 @@
 body {
   color: var(--font-color-primary);
   background: var(--background);
-  font-family: var(--font-geist-mono);
+  font-family: var(--font-default);
+  height: 100vh;
+}
+* {
+  cursor: url("./mouse.png"), auto;
+}
+
+.title {
+  font-family: var(--font-secondary);
+  color: var(--font-color-secondary);
 }

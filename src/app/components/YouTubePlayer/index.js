@@ -9,7 +9,8 @@ export default function YouTubePlayer({ videoId }) {
     registerMethod,
     player,
     setPlayer,
-    currentRadio
+    currentRadio,
+    volume
   } = useContext(GlobalContext);
 
   const getRadioActualTime = () => {
@@ -45,6 +46,12 @@ export default function YouTubePlayer({ videoId }) {
   };
 
   useEffect(() => {
+    if(player){
+      player.setVolume(volume)
+    }
+  },[volume])
+
+  useEffect(() => {
     currentRadioRef.current = currentRadio;
 }, [currentRadio])
 
@@ -78,6 +85,15 @@ export default function YouTubePlayer({ videoId }) {
                         getRadioActualTime()
                       );
                       event.target.playVideo();
+                    }
+                  });
+                  registerMethod("muteOrUnmute", () => {
+                    if (event.target) {
+                      if(event.target.isMuted()){
+                        event.target.unMute()
+                        return
+                      }
+                      event.target.mute()
                     }
                   });
                 },
