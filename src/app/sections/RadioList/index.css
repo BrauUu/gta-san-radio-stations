@@ -1,0 +1,8 @@
+#wrapper > :last-child{
+    padding-right: 40px;
+    box-sizing: content-box;
+}
+
+#wrapper > :first-child {
+    margin-left: 40px;
+}

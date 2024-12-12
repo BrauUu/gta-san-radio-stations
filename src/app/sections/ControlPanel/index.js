@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { Play, SkipForward, SkipBack, SpeakerSimpleHigh, SpeakerSimpleLow, SpeakerSimpleX, SpeakerSimpleNone} from "@phosphor-icons/react";
 import { GlobalContext } from '../../contexts/GlobalContext';
 
@@ -17,6 +17,7 @@ export default function ControlPanel() {
     } = useContext(GlobalContext)
 
     const [isMuted, setIsMuted] = useState(false)
+    const isHovering = useRef(false)
 
     const HoverMenuSoundAudio = new Audio(HoverMenuSound)
     const SelectMenuSoundAudio = new Audio(SelectMenuSound)
@@ -27,7 +28,7 @@ export default function ControlPanel() {
 
     const next = () => {
         let radioIndex = currentRadio.id + 1
-        if (radioIndex >= 10) {
+        if (radioIndex > 10) {
             radioIndex = 0
         }
         setCurrentRadio(radiosList[radioIndex])
@@ -93,13 +94,20 @@ export default function ControlPanel() {
                 <SkipForward size={40} weight="fill" onClick={next} />
             </button>
             <div
-                className='flex items-center h-10 hover:text-font-color-secondary'
-                onClick={muteOrUnmute}
+                className='flex items-center h-10 w-10 hover:text-font-color-secondary'
+                onClick={() => {
+                    muteOrUnmute()
+                    playSound(SelectMenuSoundAudio)
+                }}
                 onMouseEnter={() => {
-                    playSound(HoverMenuSoundAudio)
+                    if (!isHovering.current){
+                        playSound(HoverMenuSoundAudio)
+                    }
                     changeVolumeInputVisibility(true)
+                    isHovering.current = true
                 }}
                 onMouseLeave={() => {
+                    isHovering.current = false
                     changeVolumeInputVisibility(false)
                 }}
             >

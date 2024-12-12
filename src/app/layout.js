@@ -2,13 +2,13 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const defaultFont = localFont({
-  src: "../../public/fonts/BankGothicMedium.ttf",
+  src: "../../public/fonts/BankGothic.ttf",
   variable: "--font-default",
   weight: "400",
 });
 
 const secondaryFont = localFont({
-  src: "../../public/fonts/beckett.ttf",
+  src: "../../public/fonts/Beckett.ttf",
   variable: "--font-secondary",
   weight: "400",
 });

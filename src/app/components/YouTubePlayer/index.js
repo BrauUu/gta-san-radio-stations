@@ -2,6 +2,7 @@ import { useEffect, useContext, useRef } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 
 export default function YouTubePlayer({ videoId }) {
+
   const playerRef = useRef(null);
   const currentRadioRef = useRef(null);
 
@@ -25,7 +26,6 @@ export default function YouTubePlayer({ videoId }) {
       await new Promise((resolve, reject) => {
         const onPlayerStateChange = (event) => {
           if (event.data === window.YT.PlayerState.CUED) {
-            console.log(player.getDuration())
             player.seekTo(
               getRadioActualTime()
             )
@@ -41,19 +41,18 @@ export default function YouTubePlayer({ videoId }) {
 
         player.addEventListener("onStateChange", onPlayerStateChange);
       });
-      
     }
-  };
+  }; 
 
   useEffect(() => {
-    if(player){
+    if (player) {
       player.setVolume(volume)
     }
-  },[volume])
+  }, [volume])
 
   useEffect(() => {
     currentRadioRef.current = currentRadio;
-}, [currentRadio])
+  }, [currentRadio])
 
   useEffect(() => {
     const initializePlayer = async () => {
@@ -76,9 +75,9 @@ export default function YouTubePlayer({ videoId }) {
               events: {
                 onReady: async (event) => {
                   setPlayer(event.target)
-                  event.target.seekTo(
-                    getRadioActualTime()
-                  );
+                  // event.target.seekTo(
+                  //   getRadioActualTime()
+                  // );
                   registerMethod("play", () => {
                     if (event.target) {
                       event.target.seekTo(
@@ -89,7 +88,7 @@ export default function YouTubePlayer({ videoId }) {
                   });
                   registerMethod("muteOrUnmute", () => {
                     if (event.target) {
-                      if(event.target.isMuted()){
+                      if (event.target.isMuted()) {
                         event.target.unMute()
                         return
                       }
@@ -108,7 +107,7 @@ export default function YouTubePlayer({ videoId }) {
     };
 
     initializePlayer();
-  }, [/*player*/, videoId]);
+  }, [videoId]);
 
   return <div ref={playerRef}></div>;
 }

@@ -8,6 +8,8 @@ import radiosList from '../../data/radiosList'
 import RadioBox from '../../components/RadioBox/index.js'
 import YouTubePlayer from '../../components/YouTubePlayer/index.js'
 
+import "./index.css"
+
 export default function RadioList() {
 
     const {

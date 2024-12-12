@@ -48,29 +48,29 @@ export default function SongInfo() {
         if (currentSong) {
             return (
                 <div className='flex flex-col items-center hover:text-font-color-secondary'>
-                    <p className='text-5xl font-black'>{currentSong.name}</p>
-                    <p className='text-3xl font-bold'>{currentSong.author}</p>
+                    <p className='text-5xl font-black text-center'>{currentSong.name}</p>
+                    <p className='text-3xl font-bold text-center'>{currentSong.author}</p>
                 </div>
             )
         }
         if (currentSong === null) {
             return (
                 <div className='flex flex-col justify-center h-full hover:text-font-color-secondary'>
-                    <p className='text-5xl font-black'>Advertisement</p>
+                    <p className='text-5xl font-black text-center'>Advertisement</p>
                 </div>
             )
         }
         if (currentSong === undefined) {
             return (
                 <div className='flex flex-col justify-center h-full hover:text-font-color-secondary'>
-                    <p className='text-5xl font-black'>Tuning...</p>
+                    <p className='text-5xl font-black text-center'>Tuning...</p>
                 </div>
             )
         }
     }
 
     return (
-        <div className='flex flex-col items-center my-4 min-h-[84px]'>
+        <div className='flex flex-col items-center my-4 min-h-[84px] px-5'>
             {
                 getSongDOM()
             }
