@@ -3,7 +3,7 @@ export default [
         "id": 0,
         "name": "Bounce FM",
         "video-url": "KZUfoNjKAPU",
-        "image": "BounceFM.png",
+        "image": "bouncefm.png",
         "duration": 4082,
         "songs": [
             {
