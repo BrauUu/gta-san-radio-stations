@@ -105,7 +105,7 @@ export default function ControlPanel() {
                     playSound(SelectMenuSoundAudio)
                 }}
                 onMouseEnter={() => {
-                    if (!isHovering.current){
+                    if (!isHovering.current && window.screen.width > 768){
                         playSound(HoverMenuSoundAudio)
                     }
                     changeVolumeInputVisibility(true)
