@@ -89,13 +89,13 @@ export default function ControlPanel() {
 
     return (
         <div className='flex flex-row justify-center items-center gap-5'>
-            <button id='previous-radio' className='h-10 md:hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => playSound(HoverMenuSoundAudio)}>
+            <button id='previous-radio' className='h-10 md:hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => {if(window.screen.width > 768) playSound(HoverMenuSoundAudio)}}>
                 <SkipBack size={32} weight="fill" onClick={previous} />
             </button>
-            <button id='play' className='h-10 md:hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => playSound(HoverMenuSoundAudio)}>
+            <button id='play' className='h-10 md:hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => {if(window.screen.width > 768) playSound(HoverMenuSoundAudio)}}>
                 <Play size={40} weight="fill" onClick={play} />
             </button>
-            <button id='next-radio' className='h-10 md:hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => playSound(HoverMenuSoundAudio)}>
+            <button id='next-radio' className='h-10 md:hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => {if(window.screen.width > 768) playSound(HoverMenuSoundAudio)}}>
                 <SkipForward size={40} weight="fill" onClick={next} />
             </button>
             <div
