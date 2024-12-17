@@ -3,7 +3,7 @@ import { Play, SkipForward, SkipBack, SpeakerSimpleHigh, SpeakerSimpleLow, Speak
 import { GlobalContext } from '../../contexts/GlobalContext';
 
 import radiosList from '../../data/radiosList';
-import HoverMenuSound from '../../../../public/audios/hover.wav';
+import HoverMenuSound from '../../../../public/audios/hover.mp3';
 import SelectMenuSound from '../../../../public/audios/select.mp3';
 
 
