@@ -76,10 +76,10 @@ export default function ControlPanel() {
     const changeVolumeInputVisibility = (isVisible) => {
         const volumeInput = document.querySelector('#volume-input')
         if (isVisible) {
-            volumeInput.classList.remove('hidden')
+            volumeInput.classList.remove('md\:hidden')
             return
         }
-        volumeInput.classList.add('hidden')
+        volumeInput.classList.add('md\:hidden')
     }
 
     const muteOrUnmute = () => {
@@ -89,17 +89,17 @@ export default function ControlPanel() {
 
     return (
         <div className='flex flex-row justify-center items-center gap-5'>
-            <button id='previous-radio' className='h-10 hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => playSound(HoverMenuSoundAudio)}>
+            <button id='previous-radio' className='h-10 md:hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => playSound(HoverMenuSoundAudio)}>
                 <SkipBack size={32} weight="fill" onClick={previous} />
             </button>
-            <button id='play' className='h-10 hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => playSound(HoverMenuSoundAudio)}>
+            <button id='play' className='h-10 md:hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => playSound(HoverMenuSoundAudio)}>
                 <Play size={40} weight="fill" onClick={play} />
             </button>
-            <button id='next-radio' className='h-10 hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => playSound(HoverMenuSoundAudio)}>
+            <button id='next-radio' className='h-10 md:hover:text-font-color-secondary' onClick={() => playSound(SelectMenuSoundAudio)} onMouseEnter={() => playSound(HoverMenuSoundAudio)}>
                 <SkipForward size={40} weight="fill" onClick={next} />
             </button>
             <div
-                className='flex items-center h-10 w-10 hover:text-font-color-secondary'
+                className='flex items-center h-10 w-10 md:hover:text-font-color-secondary'
                 onClick={() => {
                     muteOrUnmute()
                     playSound(SelectMenuSoundAudio)
@@ -121,7 +121,7 @@ export default function ControlPanel() {
                 }
             </div>
             <div
-                className='flex fixed left-[calc(50%+106px)] h-10'
+                className='flex md:fixed md:left-[calc(50%+106px)] h-10'
                 onMouseEnter={() => {
                     changeVolumeInputVisibility(true)
                 }}
@@ -136,7 +136,7 @@ export default function ControlPanel() {
                     max="100"
                     value={volume}
                     onChange={(event) => setVolume(event.target.value)}
-                    className='mx-2 hidden w-28'
+                    className='mx-2 md:hidden w-28'
                 />
             </div>
         </div>
