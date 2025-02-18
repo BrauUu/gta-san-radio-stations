@@ -65,6 +65,7 @@ export default function SongInfo() {
         if (currentSong === 'tuning') {
             if(ChangeRadioSoundAudio){
                 ChangeRadioSoundAudio.loop = true
+                ChangeRadioSoundAudio.volume = 0.4
                 ChangeRadioSoundAudio.play()
             }
             return (

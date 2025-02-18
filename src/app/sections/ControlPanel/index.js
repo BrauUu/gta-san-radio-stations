@@ -43,6 +43,7 @@ export default function ControlPanel() {
     }
 
     const playSound = (audio) => {
+        audio.volume = 0.6
         audio.play()
     }
 
