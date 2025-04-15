@@ -7,7 +7,9 @@ export default function SongInfo() {
 
     const {
         currentRadio,
-        player
+        player,
+        volume,
+        isMuted
     } = useContext(GlobalContext)
 
     const [currentSong, setCurrentSong] = useState('not-played')
@@ -65,7 +67,7 @@ export default function SongInfo() {
         if (currentSong === 'tuning') {
             if(ChangeRadioSoundAudio){
                 ChangeRadioSoundAudio.loop = true
-                ChangeRadioSoundAudio.volume = 0.4
+                ChangeRadioSoundAudio.volume = isMuted ? 0 : volume / 100
                 ChangeRadioSoundAudio.play()
             }
             return (

@@ -9,6 +9,7 @@ export const GlobalProvider = ({ children }) => {
     const [currentRadio, setCurrentRadio] = useState(radiosList[5])
     const [player, setPlayer] = useState(null);
     const [volume, setVolume] = useState(100);
+    const [isMuted, setIsMuted] = useState(false)
 
     const methods = useRef({});
 
@@ -35,7 +36,9 @@ export const GlobalProvider = ({ children }) => {
           setCurrentRadio,
           player, 
           setPlayer,
-          volume, 
+          volume,
+          isMuted,
+          setIsMuted,
           setVolume,
           registerMethod, 
           unregisterMethod, 

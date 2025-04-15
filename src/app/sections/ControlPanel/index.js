@@ -14,10 +14,11 @@ export default function ControlPanel() {
         setCurrentRadio,
         volume,
         setVolume,
-        callMethod
+        callMethod,
+        isMuted,
+        setIsMuted
     } = useContext(GlobalContext)
 
-    const [isMuted, setIsMuted] = useState(false)
     const [HoverMenuSoundAudio, setHoverMenuSoundAudio] = useState(null)
     const [SelectMenuSoundAudio, setSelectMenuSoundAudio] = useState(null)
     const isHovering = useRef(false)
@@ -43,7 +44,7 @@ export default function ControlPanel() {
     }
 
     const playSound = (audio) => {
-        audio.volume = 0.6
+        audio.volume = isMuted ? 0 : volume / 100
         audio.play()
     }
 
@@ -135,8 +136,10 @@ export default function ControlPanel() {
                     type="range"
                     min="0"
                     max="100"
-                    value={volume}
-                    onChange={(event) => setVolume(event.target.value)}
+                    value={isMuted ? 0 : volume}
+                    onChange={(event) => {
+                        !isMuted ? setVolume(event.target.value) : undefined}
+                    }
                     className='mx-2 md:hidden w-28'
                 />
             </div>
