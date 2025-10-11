@@ -8,6 +8,7 @@ export default function YouTubePlayer({ videoId }) {
 
   const {
     registerMethod,
+    callMethod,
     player,
     setPlayer,
     currentRadio,
@@ -63,8 +64,6 @@ export default function YouTubePlayer({ videoId }) {
         script.onload = () => {
           window.onYouTubeIframeAPIReady = async () => {
             new window.YT.Player(playerRef.current, {
-              // height: "300",
-              // width: "500",
               height: "0",
               width: "0",
               videoId: videoId,
@@ -75,9 +74,6 @@ export default function YouTubePlayer({ videoId }) {
               events: {
                 onReady: async (event) => {
                   setPlayer(event.target)
-                  // event.target.seekTo(
-                  //   getRadioActualTime()
-                  // );
                   registerMethod("play", () => {
                     if (event.target) {
                       event.target.seekTo(
@@ -96,6 +92,11 @@ export default function YouTubePlayer({ videoId }) {
                     }
                   });
                 },
+                onStateChange : async (event) => {
+                  if (event.data == 2) {
+                    callMethod('play')
+                  }
+                }
               },
             });
           };

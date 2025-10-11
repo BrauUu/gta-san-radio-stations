@@ -138,8 +138,10 @@ export default function ControlPanel() {
                     max="100"
                     value={isMuted ? 0 : volume}
                     onChange={(event) => {
-                        !isMuted ? setVolume(event.target.value) : undefined}
-                    }
+                        if(!isMuted) {
+                            setVolume(event.target.value)
+                        }
+                    }}
                     className='mx-2 md:hidden w-28'
                 />
             </div>
