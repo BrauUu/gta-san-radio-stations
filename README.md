@@ -1,13 +1,3 @@
-To run the development server:
+# Grand Theft Auto: San Andreas radio stations 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000), or some other port shown in your terminal, with your browser to see the result.
+Listen to your favorites Grand Theft Auto: San Andreas radio stations in [here](https://gta-san-radio-stations.vercel.app/)
